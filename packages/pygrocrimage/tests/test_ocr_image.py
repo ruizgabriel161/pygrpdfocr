@@ -1,14 +1,14 @@
 from pathlib import Path
 
-from pygrpdfimage.pdf_to_image import PDFToImage
+from pygrpdfimage.service import PDFService
 
 from pygrocrimage.ocr.factory_orc import OCRFactory
 
 
 def main(model: str, pdf_path: str, model_provider: str, base_url: str):
-    pdf_to_image = PDFToImage()
+    pdf_to_image = PDFService()
 
-    image = pdf_to_image.convert(pdf_path=Path(pdf_path))[-1]
+    image = pdf_to_image.pdf_to_images(pdf_path=Path(pdf_path))[-1]
 
     # b64 = pdf_to_image.pil_to_base64(img=image)
 
